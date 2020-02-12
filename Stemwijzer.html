@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Stemwijzer</title>
-	<link rel="stylesheet" type="text/css" href="Stemwijzer.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
+	<head>
+		<title>Stemwijzer</title>
+		<link rel="stylesheet" type="text/css" href="Stemwijzer.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	</head>
 
-<body>
-	<div class="container-fuild">	
-		<!--Content row.-->
-		<div class="row border-right">
-			<div class="col-2 bg-info">
-				<div class="menu flex-wrap">
-					<h2 class="text-light">
-						Menu
-						<i class="fas fa-list-ul float-right mt-1"></i>
-					</h2>
+	<body>
+		<!--Container-->
+		<div class="container mt-3">	
+			<!--First / Main content-->
+			<div class="col-12 bg-white">
+				<div class="row">
+					<!--Load logo image-->
+					<img src="images/StemwijzerLogo.png" alt="Tweedekamer">
+				</div>
+				
+				<div class="ml-4">
+					<div class="row">	
+						<h1>
+							StemWijzer Tweede Kamer 2020
+						</h1>
+					</div>
+
+					<div class="row pt-3">
+						<h2>
+							Test uw politieke voorkeur aan de hand van 30 stellingen
+						</h2>
+					</div>
+					
+					<div class="row infoText">
+						<div class="col-1">
+							<i class="far fa-user-circle fa-2x align-middle"></i>
+						</div>
+
+						<div class="col-3">
+							<h3>
+								Bekijk de toegankelijke versie voor mensen met een visuele beperking
+							</h3>
+						</div>
+
+						<div class="col-8">
+							<button onclick="window.location.href='Questions.html'" class="StartButton d-flex justify-content-center">Start</button>
+						</div>
+					</div>
+
+					<div class="row infoText pb-4">
+						<div class="col-1">
+							<i class="fas fa-unlock-alt fa-2x align-middle"></i>
+						</div>
+
+						<div class="col-3">
+							<h3>
+								De StemWijzer maakt geen gebruik van cookies. Klik hier voor de volledige privacy statement
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>		
+
+			<!--Second / StemmenTracker link-->
+			<div class="col-12 bg-light SecondContent">
+				<div class="row ml-5">
+					<div class="row mt-4">
+						<a class="Link" href="https://stemmentracker.nl/">Of blik terug met de StemmenTracker</a>
+					</div>
+
+					<div class="row mt-4">
+						<h4>
+							Wat hebben de partijen in het verleden waargemaakt van hun verkiezingsbeloften? 'Track' uw stem met de Stemmentracker, een website die terugblikt op 30 Tweede Kamerstemmingen van de afgelopen regeerperiode. Met welke partij stemde u mee?
+						</h4>
+					</div>
 				</div>
 			</div>
-
-			<div class="col-9">
-				<!--First content-->
-				<div class="FirstContent flex-wrap">
-					<h2>First content</h2>
-				</div>
 			
-				<!--Second content-->
-				<div class="SecondContent bg-light border-top border-info">
-					<h2>Second content</h2>
+			<!--Third / Footer-->
+			<div class="col-12 ThirdContent">
+				<div class="row ml-5 pt-4">
+					<p class="text-white">
+						Stemwijzer Nick Wilschut | Copy 2020
+					</p>
 				</div>
 			</div>
 		</div>
-		
-		<!--Footer row-->
-		<div class="row bg-dark fixed-bottom">
-			<!--Create footer.-->
-			<div class="col-12">
-				<div class="Footer">
-					<h2>Footer</h2>
-				</div>
-			</div>
-		</div>
-	</div>
 
-
-
-
-
-
-
-
-
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/7074163fe3.js" crossorigin="anonymous"></script>
-</body>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	    <script src="https://kit.fontawesome.com/7074163fe3.js" crossorigin="anonymous"></script>
+	</body>
 </html>
 
 <script src="Stemwijzer.js"></script>

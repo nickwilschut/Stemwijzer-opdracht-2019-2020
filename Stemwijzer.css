@@ -1,11 +1,122 @@
-.Menu {
-	height: 500px;
+body {
+  background-image: url('images/Tweedekamer.jpg');
 }
 
 .FirstContent {
-	height: 500px;
+	height: 400px;
 }
 
 .SecondContent {
-	height: 500px;
+	height: 200px;
+	border-top: 2px dotted #979797;
 }
+
+.ThirdContent {
+	height: 100px;
+	background-color: #01B4DC;
+}
+
+h1 {
+	font-family: 'Arial';
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+h2 {
+	font-family: 'Arial';
+    font-size: 22px !important;
+    font-weight: bold;
+    color: #01B4DC;
+}
+
+h3 {
+	font-family: 'Arial';
+	display: block;
+    margin-bottom: 2em;
+    color: black;
+    font-size: 16px !important;
+    text-decoration: none;
+	font-weight: bold;
+}
+
+h4 {
+	font-family: 'Arial';
+	display: block;
+    margin-bottom: 2em;
+    color: #4F4D4D;
+    font-size: 16px !important;
+    text-decoration: none;
+    max-width: 800px;
+}
+
+h5 {
+	font-size: 28px !important;
+}
+
+h6 {
+	font-family: 'Arial';
+    margin-bottom: 2em;
+    color: #4F4D4D;
+    font-size: 28px !important;
+    text-decoration: none;
+    max-width: 800px;
+    color: #01B4DC;
+}
+
+
+.fa-user-circle {
+	color: #01B4DC;
+}
+
+.fa-unlock-alt {
+	color: #01B4DC;
+}
+
+.infoText {
+	margin-top: 45px;
+}
+
+.StartButton {
+    min-width: 188px;
+    min-height: 68px;
+	font-size: 24px !important;
+	margin-left: 210px;
+	background-color: black;
+	color: white;
+	border-radius: 8px;
+}
+
+.Link {
+	color: #343a40;
+	font-size: 20px;
+}
+
+.StartButton:hover {
+	background-color: #01B4DC;
+}
+
+.QuestionText {
+	margin-left: 12%;
+	margin-right: 12%;
+}
+
+.QuestionButton {
+    min-width: 188px;
+    min-height: 68px;
+	font-size: 24px !important;
+	margin-right: 10px;
+	background-color: black;
+	color: white;
+	border-radius: 8px;
+}
+
+.Options {
+	margin-top: 80px;
+}
+
+
+
+
+
+
+
