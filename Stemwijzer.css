@@ -91,7 +91,12 @@ h6 {
 	font-size: 20px;
 }
 
-.StartButton:hover {
+.LinkNext {
+	color: grey;
+	font-size: 20px;
+}
+
+.StartButton:hover, .QuestionButton:hover {
 	background-color: #01B4DC;
 }
 
@@ -114,6 +119,11 @@ h6 {
 	margin-top: 80px;
 }
 
+.align-items-center {
+	display: flex; 
+  	align-items: center; 
+  	justify-content: center;
+}
 
 
 
