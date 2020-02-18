@@ -6,25 +6,29 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
+
 	<body>
+		<p id="demo"></p>
+		<!--Overall container-->
 		<div class="container mt-3">
 			<div class="col-12 bg-white">
-				<div class="QuestionText">
+				<!--First question-->
+				<div class="QuestionText" id="1">
 					<div class="row">
-						<h6>1. Bindend referendum</h6>
+						<h6 id="QuestionTitle"/>
 					</div>
 
 					<div class="row mt-4">
-						<h5>Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.</h5>
+						<h5 id="QuestionDescription"/>
 					</div>
+				</div>
 
-					<!--Opinion buttons-->
-					<div class="row Options">
-						<button onclick="window.location.href='Questions.html'" class="QuestionButton d-flex justify-content-center">Eens</button>
-						<button onclick="window.location.href='Questions.html'" class="QuestionButton d-flex justify-content-center">Geen van Beide</button>
-						<button onclick="window.location.href='Questions.html'" class="QuestionButton d-flex justify-content-center">Oneens</button>
-						<a class="LinkNext align-items-center" href="https://stemmentracker.nl/">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
-					</div>
+				<!--Opinion buttons-->
+				<div class="row Options">
+					<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Eens</button>
+					<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Geen van Beide</button>
+					<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Oneens</button>
+					<a onclick="toggle_visibility('1');" class="LinkNext align-items-center">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
 				</div>
 			</div>
 		</div>
@@ -33,5 +37,14 @@
 	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	    <script src="https://kit.fontawesome.com/7074163fe3.js" crossorigin="anonymous"></script>
+
+	    <script src="Stemwijzer.js"></script>
 	</body>
 </html>
+
+
+
+
+
+
+
