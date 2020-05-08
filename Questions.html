@@ -11,24 +11,29 @@
 		<p id="demo"></p>
 		<!--Overall container-->
 		<div class="container mt-3">
-			<div class="col-12 bg-white">
-				<!--First question-->
-				<div class="QuestionText" id="1">
-					<div class="row">
-						<h6 id="QuestionTitle"/>
-					</div>
-
-					<div class="row mt-4">
-						<h5 id="QuestionDescription"/>
-					</div>
+			<div class="row bg-white">
+				<div class="col-1 mt-2">
+					<button onclick="window.location.href='Stemwijzer.html'" class="backbutton btn-lg d-flex justify-content-center "><i class="fas fa-arrow-circle-left text-white"></i></button>
 				</div>
+				<div class="col-11 mt-2">
+					<!--First question-->
+					<div class="QuestionText" id="1">
+						<div class="row">
+							<h6 id="QuestionTitle"/>
+						</div>
 
-				<!--Opinion buttons-->
-				<div class="row Options">
-					<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Eens</button>
-					<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Geen van Beide</button>
-					<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Oneens</button>
-					<a onclick="toggle_visibility('1');" class="LinkNext align-items-center">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
+						<div class="row mt-4">
+							<h5 id="QuestionDescription"/>
+						</div>
+					</div>
+
+					<!--Opinion buttons-->
+					<div class="row Options mx-auto mb-3">
+						<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Eens</button>
+						<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Geen van Beide</button>
+						<button onclick="toggle_visibility('1');" class="QuestionButton d-flex justify-content-center">Oneens</button>
+						<a onclick="window.location.href='StemwijzerResult.html'" class="LinkNext align-items-center text-secondary">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
+					</div>
 				</div>
 			</div>
 		</div>
