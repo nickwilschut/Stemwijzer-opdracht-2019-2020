@@ -1,23 +1,78 @@
 var i = 0;
 var x = 0;
+var questionResults = [];
+var questionAnswers = [];
+var results = [];
 
-function nextQuestion() {
-    var items = subjects[Object.keys(subjects)[i++]]
-    document.getElementById('QuestionTitle').innerHTML = items.title;
-    document.getElementById('QuestionDescription').innerHTML = items.statement; 
-    if (i == items.title.length) {
-        window.location.href='StemwijzerResult.html'
+// function addWeight() {
+//     var checkBox = document.getElementById("addWeight");
+//     var text = document.getElementById("text");
+//     if (checkBox.checked == true){
+//         i + 1;
+//     }
+// }
+
+function nextQuestion(opinion) {
+    document.getElementById('Questions').style.display = "block";
+    document.getElementById('Results').style.display = "none";
+
+    if (i != subjects.length) { 
+        var items = subjects[Object.keys(subjects)[i++]]
+        var partyOpinions = items.parties;
+
+        console.log(i);
+
+        document.getElementById('QuestionTitle').innerHTML = items.title;
+        document.getElementById('QuestionDescription').innerHTML = items.statement; 
+
+        partyOpinions.forEach(function(subjectItems) {
+            if (subjectItems.position == opinion) { 
+                var sameAnswer = subjectItems;
+                questionResults.push({index: i, answer: sameAnswer.name});
+            }
+        });  
+    } else {
+        loadResult();
     }
 }
 
 function previousQuestion() {
-    var items = subjects[Object.keys(subjects)[i=i-1]]
-    document.getElementById('QuestionTitle').innerHTML = items.title;
-    document.getElementById('QuestionDescription').innerHTML = items.statement; 
     if (i == 0) {
         window.location.href='Stemwijzer.html'
-    } 
+    } else {
+        console.log(i);
+        console.log(questionResults);
+        var items = subjects[Object.keys(subjects)[i=i-1]]
+        document.getElementById('QuestionTitle').innerHTML = items.title;
+        document.getElementById('QuestionDescription').innerHTML = items.statement; 
+    }
+}
+
+function loadResult() {
+    document.getElementById('Questions').style.display = "none";
+    document.getElementById('Results').style.display = "block";
+    
+    questionResults.forEach(function(questionResults) {
+        questionAnswers.push(questionResults.answer);
+    });    
+
+    parties.forEach(function(party) {
+        results.push(questionAnswers.filter( code => code === party.name)); 
+    }); 
+
+    var winningParty = results.reduce(function(a,i,ii) {
+        if (ii === 1){
+            return a
+        };
+        if (i.length > a.length){
+            return i
+        }
+        return a
+    });
+
+    document.getElementById('winningParty').innerHTML = winningParty.shift();
 }     
+
 
 var parties = [{
     name: "VVD",
