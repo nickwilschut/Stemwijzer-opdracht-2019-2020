@@ -1,57 +1,64 @@
+// Set all the variables and arrays.
 var i = 0;
 var x = 0;
 var questionResults = [];
 var questionAnswers = [];
 var results = [];
 
-// function addWeight() {
-//     var checkBox = document.getElementById("addWeight");
-//     var text = document.getElementById("text");
-//     if (checkBox.checked == true){
-//         i + 1;
-//     }
-// }
-
+/**
+This function will display all the questions on request. 
+Also it will store the results based on the by the user selected answers.
+*/
 function nextQuestion(opinion) {
+    // display the questions instead of the result page.
     document.getElementById('Questions').style.display = "block";
     document.getElementById('Results').style.display = "none";
 
+    // If there are more subjects than the index is high, display a new question.
     if (i != subjects.length) { 
         var items = subjects[Object.keys(subjects)[i++]]
         var partyOpinions = items.parties;
 
-        console.log(i);
-
+        // place the question title and description in the html.
         document.getElementById('QuestionTitle').innerHTML = items.title;
         document.getElementById('QuestionDescription').innerHTML = items.statement; 
 
+        // loop through all the partyOpinions.
         partyOpinions.forEach(function(subjectItems) {
             if (subjectItems.position == opinion) { 
                 var sameAnswer = subjectItems;
+                // push data to questionResults array.
                 questionResults.push({index: i, answer: sameAnswer.name});
             }
-        });  
+        }); 
     } else {
+        // Call the load result function.
         loadResult();
     }
 }
 
+/**
+This function does the oposite of the nextQuestion function.
+It will display the previous question.
+*/
 function previousQuestion() {
-    if (i == 0) {
-        window.location.href='Stemwijzer.html'
-    } else {
-        console.log(i);
-        console.log(questionResults);
+    // the index is higher than 0 display the previous question, else go back to homepage.
+    if (i != 0) {
         var items = subjects[Object.keys(subjects)[i=i-1]]
+
+        // place the question title and description in the html.
         document.getElementById('QuestionTitle').innerHTML = items.title;
-        document.getElementById('QuestionDescription').innerHTML = items.statement; 
+        document.getElementById('QuestionDescription').innerHTML = items.statement;
+    } else { 
+        // Go back to homepage.
+        window.location.href='Stemwijzer.html';
     }
 }
 
+/**
+This function will calculate which of the parties has the most of the same answers.
+*/
 function loadResult() {
-    document.getElementById('Questions').style.display = "none";
-    document.getElementById('Results').style.display = "block";
-    
     questionResults.forEach(function(questionResults) {
         questionAnswers.push(questionResults.answer);
     });    
@@ -59,7 +66,7 @@ function loadResult() {
     parties.forEach(function(party) {
         results.push(questionAnswers.filter( code => code === party.name)); 
     }); 
-
+    //return the party which is the closest to your opinion.
     var winningParty = results.reduce(function(a,i,ii) {
         if (ii === 1){
             return a
@@ -70,7 +77,12 @@ function loadResult() {
         return a
     });
 
+    //diplay in the html the party which is the closest to your opinion.
     document.getElementById('winningParty').innerHTML = winningParty.shift();
+
+    // display the result page instead of the questions.
+    document.getElementById('Questions').style.display = "none";
+    document.getElementById('Results').style.display = "block";
 }     
 
 
