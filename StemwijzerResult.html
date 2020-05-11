@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="Stemwijzer.js"></script>
 	</head>
 
-	<body>
+	<body onload="loadResults()">
 		<!--Container-->
 		<div class="container mt-3">	
 			<!--First / Main content-->
@@ -37,6 +37,8 @@
 				<div class="row ml-5">
 					<p>Nummer 3.</p>
 				</div>
+
+				<div id="testResults"/>
 
 				<div class="row ml-4">
 					<button onclick="window.location.href='Stemwijzer.html'" class="Endbutton d-flex justify-content-center">Opnieuw maken</button>
