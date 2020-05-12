@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Set the header -->
 		<title>Questions</title>
 		<link rel="stylesheet" type="text/css" href="Stemwijzer.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
 
-	<body onload="nextQuestion()">
+	<!-- When page is loaded instantly call function nextQuestion(). -->
+	<body onload="nextQuestion();">
 		<!--Overall container-->
 		<div class="container mt-3">
 			<div id="Questions">
 				<div class="row bg-white" >
 					<div class="col-1 mt-2">
-						<button onclick="previousQuestion()" class="backbutton btn-lg d-flex justify-content-center "><i class="fas fa-arrow-circle-left text-white"></i></button>
+						<button onclick="previousQuestion();" class="backbutton btn-lg d-flex justify-content-center "><i class="fas fa-arrow-circle-left text-white"></i></button>
 					</div>
 					<div class="col-11 mt-2">
 						<!--First question-->
@@ -31,7 +33,7 @@
 							<button onclick="nextQuestion('pro');" class="QuestionButton d-flex justify-content-center">Eens</button>
 							<button onclick="nextQuestion('none');" class="QuestionButton d-flex justify-content-center">Geen van Beide</button>
 							<button onclick="nextQuestion('contra');" class="QuestionButton d-flex justify-content-center">Oneens</button>
-							<a onclick="nextQuestion()" class="LinkNext align-items-center text-secondary">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
+							<a onclick="nextQuestion();" class="LinkNext align-items-center text-secondary">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
 						</div>
 					</div>
 				</div>
@@ -46,19 +48,18 @@
 					</div>
 					
 					<div class="row ml-4">	
-						<h1>
-							StemWijzer Tweede Kamer 2020
-						</h1>
+						<!-- Main header -->
+						<h1>StemWijzer Tweede Kamer 2020</h1>
 					</div>
 
 					<div class="row ml-4">
+						<!-- Display the winning party. -->
 						<p>De Partij die het best bij u past is:</p>
 						<p class="ml-1 text-secondary" id="winningParty"/>
 					</div>
 
-					<div id="testResults"></div>
-
 					<div class="row ml-4">
+						<!-- Button to return to main page. -->
 						<button onclick="window.location.href='Stemwijzer.html'" class="Endbutton d-flex justify-content-center">Opnieuw maken</button>
 					</div>
 				</div>		
@@ -67,18 +68,17 @@
 				<div class="col-12 bg-light SecondContent">
 					<div class="row ml-5">
 						<div class="row mt-4">
+							<!-- Link to stemmentracker.nl -->
 							<a class="Link" href="https://stemmentracker.nl/">Of blik terug met de StemmenTracker</a>
 						</div>
 
 						<div class="row mt-4">
-							<h4>
-								Wat hebben de partijen in het verleden waargemaakt van hun verkiezingsbeloften? 'Track' uw stem met de Stemmentracker, een website die terugblikt op 30 Tweede Kamerstemmingen van de afgelopen regeerperiode. Met welke partij stemde u mee?
-							</h4>
+							<h4>Wat hebben de partijen in het verleden waargemaakt van hun verkiezingsbeloften? 'Track' uw stem met de Stemmentracker, een website die terugblikt op 30 Tweede Kamerstemmingen van de afgelopen regeerperiode. Met welke partij stemde u mee?</h4>
 						</div>
 					</div>
 				</div>
 				
-				<!--Third / Footer-->
+				<!-- Footer -->
 				<div class="col-12 ThirdContent">
 					<div class="row ml-5 pt-4">
 						<p class="text-white">
@@ -88,7 +88,8 @@
 				</div>
 			</div>	
 		</div>	
-
+		
+		<!-- Load bootstrap and fontawesome. -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
