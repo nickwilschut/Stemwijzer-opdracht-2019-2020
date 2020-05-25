@@ -14,26 +14,32 @@ function nextQuestion(opinion) {
     document.getElementById('beforeResults').style.display = "none";
     document.getElementById('Results').style.display = "none";
     
-
     // If there are more subjects than the index is high, display a new question.
     if (subjectsIndex != subjects.length) { 
         subject = subjects[subjectsIndex];
+        partyOpinions = subject.parties;
+        checkBox = document.getElementById("addWeight");
+
         // place the question title and description in the html.
         document.getElementById('QuestionTitle').innerHTML = subject.title;
         document.getElementById('QuestionDescription').innerHTML = subject.statement; 
-
-        subjectsIndex++;
-
-        var partyOpinions = subject.parties;
-
+        
         // loop through all the partyOpinions.
         partyOpinions.forEach(function(subjectItems) {
             if (subjectItems.position == opinion) { 
-                var sameAnswer = subjectItems;
-                // push data to questionResults array.
-                questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
+                sameAnswer = subjectItems;
+                if (checkBox.checked == true){
+                    // push data to questionResults array.
+                    questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
+                    questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
+                } else {
+                    // push data to questionResults array.
+                    questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
+                }
             }
         }); 
+
+        subjectsIndex++;
     } else {
         document.getElementById('Questions').style.display = "none";
         document.getElementById('beforeResults').style.display = "block";
@@ -79,15 +85,15 @@ function calculateResult(partySize) {
       }
     }); 
 
-    var winningParty = results.reduce(function(a,i,ii) {
-          if (ii === 1){
-              return a
-          };
-          if (i.length > a.length){
-              return i
-          }
-          return a
-      });
+    winningParty = results.reduce(function(a,i,ii) {
+        if (ii === 1){
+            return a
+        };
+        if (i.length > a.length){
+            return i
+        }
+        return a
+    });
 
     //display in the html the party which is the closest to your opinion.
     document.getElementById('winningParty').innerHTML = winningParty.shift();
