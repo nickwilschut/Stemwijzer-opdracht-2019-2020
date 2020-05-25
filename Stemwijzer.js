@@ -1,6 +1,5 @@
 // Set all the variables and arrays.
-var i = 0;
-var x = 0;
+var subjectsIndex = 0;
 var questionResults = [];
 var questionAnswers = [];
 var results = [];
@@ -15,20 +14,25 @@ function nextQuestion(opinion) {
     document.getElementById('Results').style.display = "none";
 
     // If there are more subjects than the index is high, display a new question.
-    if (i != subjects.length) { 
-        var items = subjects[Object.keys(subjects)[i++]]
-        var partyOpinions = items.parties;
-
+    if (subjectsIndex != subjects.length) { 
+        subject = subjects[subjectsIndex];
         // place the question title and description in the html.
-        document.getElementById('QuestionTitle').innerHTML = items.title;
-        document.getElementById('QuestionDescription').innerHTML = items.statement; 
+        document.getElementById('QuestionTitle').innerHTML = subject.title;
+        document.getElementById('QuestionDescription').innerHTML = subject.statement; 
+
+        console.log(subjectsIndex);
+        console.log(subject);
+        console.log(subjects);
+        subjectsIndex++;
+
+        var partyOpinions = subject.parties;
 
         // loop through all the partyOpinions.
         partyOpinions.forEach(function(subjectItems) {
             if (subjectItems.position == opinion) { 
                 var sameAnswer = subjectItems;
                 // push data to questionResults array.
-                questionResults.push({index: i, answer: sameAnswer.name});
+                questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
             }
         }); 
     } else {
@@ -43,12 +47,12 @@ It will display the previous question.
 */
 function previousQuestion() {
     // the index is higher than 0 display the previous question, else go back to homepage.
-    if (i != 0) {
-        var items = subjects[Object.keys(subjects)[i=i-1]]
-
+    if (subjectsIndex != 0) {
+        subjectsIndex=subjectsIndex-1;
+        subject = subjects[subjectsIndex];
         // place the question title and description in the html.
-        document.getElementById('QuestionTitle').innerHTML = items.title;
-        document.getElementById('QuestionDescription').innerHTML = items.statement;
+        document.getElementById('QuestionTitle').innerHTML = subject.title;
+        document.getElementById('QuestionDescription').innerHTML = subject.statement;
     } else { 
         // Go back to homepage.
         window.location.href='Stemwijzer.html';
