@@ -11,7 +11,9 @@ Also it will store the results based on the by the user selected answers.
 function nextQuestion(opinion) {
     // display the questions instead of the result page.
     document.getElementById('Questions').style.display = "block";
+    document.getElementById('beforeResults').style.display = "none";
     document.getElementById('Results').style.display = "none";
+    
 
     // If there are more subjects than the index is high, display a new question.
     if (subjectsIndex != subjects.length) { 
@@ -20,9 +22,6 @@ function nextQuestion(opinion) {
         document.getElementById('QuestionTitle').innerHTML = subject.title;
         document.getElementById('QuestionDescription').innerHTML = subject.statement; 
 
-        console.log(subjectsIndex);
-        console.log(subject);
-        console.log(subjects);
         subjectsIndex++;
 
         var partyOpinions = subject.parties;
@@ -36,8 +35,11 @@ function nextQuestion(opinion) {
             }
         }); 
     } else {
+        document.getElementById('Questions').style.display = "none";
+        document.getElementById('beforeResults').style.display = "block";
+        document.getElementById('Results').style.display = "none";
+
         // Call the load result function.
-        loadResult();
     }
 }
 
@@ -62,32 +64,39 @@ function previousQuestion() {
 /**
 This function will calculate which of the parties has the most of the same answers.
 */
-function loadResult() {
+function calculateResult(partySize) {
     questionResults.forEach(function(questionResults) {
         questionAnswers.push(questionResults.answer);
     });    
 
     parties.forEach(function(party) {
-        results.push(questionAnswers.filter( code => code === party.name)); 
+      if (partySize == null) {
+          results.push(questionAnswers.filter( code => code === party.name)); 
+      } else {
+          if (party.secular == partySize) {
+              results.push(questionAnswers.filter( code => code === party.name)); 
+          }
+      }
     }); 
-    //return the party which is the closest to your opinion.
-    var winningParty = results.reduce(function(a,i,ii) {
-        if (ii === 1){
-            return a
-        };
-        if (i.length > a.length){
-            return i
-        }
-        return a
-    });
 
-    //diplay in the html the party which is the closest to your opinion.
+    var winningParty = results.reduce(function(a,i,ii) {
+          if (ii === 1){
+              return a
+          };
+          if (i.length > a.length){
+              return i
+          }
+          return a
+      });
+
+    //display in the html the party which is the closest to your opinion.
     document.getElementById('winningParty').innerHTML = winningParty.shift();
 
     // display the result page instead of the questions.
     document.getElementById('Questions').style.display = "none";
+    document.getElementById('beforeResults').style.display = "none";
     document.getElementById('Results').style.display = "block";
-}     
+}   
 
 
 var parties = [{
