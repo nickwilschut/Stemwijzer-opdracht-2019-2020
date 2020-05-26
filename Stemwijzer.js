@@ -24,28 +24,29 @@ function nextQuestion(opinion) {
         document.getElementById('QuestionTitle').innerHTML = subjectsIndex+1 +'.'+ ' ' + subject.title;
         document.getElementById('QuestionDescription').innerHTML = subject.statement; 
         
-        // loop through all the partyOpinions.
-        partyOpinions.forEach(function(subjectItems) {
-            if (subjectItems.position == opinion) { 
-                sameAnswer = subjectItems;
-                if (checkBox.checked == true){
-                    // push data to questionResults array.
-                    questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
-                    questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
-                } else {
-                    // push data to questionResults array.
-                    questionResults.push({index: subjectsIndex, answer: sameAnswer.name});
+        if (opinion == 'skip') {
+            questionResults.push({index: subjectsIndex, opinion: opinion});
+        } else {
+            // loop through all the partyOpinions.
+            partyOpinions.forEach(function(subjectItems) {
+                if (subjectItems.position == opinion) { 
+                    sameAnswer = subjectItems;
+                    if (checkBox.checked == true) {
+                        // push data to questionResults array.
+                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion});
+                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion});
+                    } else {
+                        // push data to questionResults array.
+                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion});
+                    }
                 }
-            }
-        }); 
-
+            }); 
+        }
         subjectsIndex++;
     } else {
         document.getElementById('Questions').style.display = "none";
         document.getElementById('beforeResults').style.display = "block";
         document.getElementById('Results').style.display = "none";
-
-        // Call the load result function.
     }
 }
 
@@ -80,7 +81,6 @@ function calculateResult(filter) {
     questionResults.forEach(function(questionResults) {
         questionAnswers.push(questionResults.answer);
     });    
-    console.log(questionAnswers);
     parties.forEach(function(party) {
         if (filter == 'all') {
             results.push(questionAnswers.filter( code => code === party.name)); 
