@@ -54,9 +54,9 @@
 						<h5>
 							Welke partijen moeten worden weergegeven?
 						</h5>
-						<button onclick="calculateResult(true);" class="QuestionButton d-flex justify-content-center mb-3">Laat de grote partijen zien</button>
-						<button onclick="calculateResult(false);" class="QuestionButton d-flex justify-content-center mb-3">Laat de kleine partijen zien</button>
-						<button onclick="calculateResult(null);" class="QuestionButton d-flex justify-content-center mb-3">Laat alle partijen zien</button>
+						<button onclick="calculateResult('secular');" class="QuestionButton d-flex justify-content-center mb-3">Laat de seculiere partijen zien</button>
+						<button onclick="calculateResult('big');" class="QuestionButton d-flex justify-content-center mb-3">Laat de grote partijen zien</button>
+						<button onclick="calculateResult('all');" class="QuestionButton d-flex justify-content-center mb-3">Laat alle partijen zien</button>
 					</div>
 				</div>
 				
@@ -69,7 +69,16 @@
 						<!--Load logo image-->
 						<img src="images/StemwijzerLogo.png" alt="Tweedekamer">
 					</div>
-					
+
+					<div class="row mb-5">
+						<div class="col-1">
+							<button onclick="backToFilter();" class="backbutton btn-lg d-flex justify-content-center "><i class="fas fa-arrow-circle-left text-white"></i></button>
+						</div>
+						<div class="col-11">
+							<h1>Terug naar de vorige pagina.</h1>
+						</div>
+					</div>
+
 					<div class="row ml-4">	
 						<!-- Main header -->
 						<h1>StemWijzer Tweede Kamer 2020</h1>

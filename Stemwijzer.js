@@ -21,7 +21,7 @@ function nextQuestion(opinion) {
         checkBox = document.getElementById("addWeight");
 
         // place the question title and description in the html.
-        document.getElementById('QuestionTitle').innerHTML = subject.title;
+        document.getElementById('QuestionTitle').innerHTML = subjectsIndex+1 +'.'+ ' ' + subject.title;
         document.getElementById('QuestionDescription').innerHTML = subject.statement; 
         
         // loop through all the partyOpinions.
@@ -59,7 +59,7 @@ function previousQuestion() {
         subjectsIndex=subjectsIndex-1;
         subject = subjects[subjectsIndex];
         // place the question title and description in the html.
-        document.getElementById('QuestionTitle').innerHTML = subject.title;
+        document.getElementById('QuestionTitle').innerHTML = subjectsIndex+1 +'.'+ ' ' + subject.title;
         document.getElementById('QuestionDescription').innerHTML = subject.statement;
     } else { 
         // Go back to homepage.
@@ -67,22 +67,28 @@ function previousQuestion() {
     }
 }
 
+function backToFilter () {
+    document.getElementById('Questions').style.display = "none";
+    document.getElementById('beforeResults').style.display = "block";
+    document.getElementById('Results').style.display = "none";
+}
+
 /**
 This function will calculate which of the parties has the most of the same answers.
 */
-function calculateResult(partySize) {
+function calculateResult(filter) {
     questionResults.forEach(function(questionResults) {
         questionAnswers.push(questionResults.answer);
     });    
-
+    console.log(questionAnswers);
     parties.forEach(function(party) {
-      if (partySize == null) {
-          results.push(questionAnswers.filter( code => code === party.name)); 
-      } else {
-          if (party.secular == partySize) {
-              results.push(questionAnswers.filter( code => code === party.name)); 
-          }
-      }
+        if (filter == 'all') {
+            results.push(questionAnswers.filter( code => code === party.name)); 
+        } else if ((filter == 'secular') && (party.secular == true)) {
+            results.push(questionAnswers.filter( code => code === party.name)); 
+        } else if ((filter == 'big' ) && (party.size >= 10)) {
+            results.push(questionAnswers.filter( code => code === party.name)); 
+        }
     }); 
 
     winningParty = results.reduce(function(a,i,ii) {
