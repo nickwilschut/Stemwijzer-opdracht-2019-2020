@@ -12,8 +12,9 @@ function nextQuestion(opinion) {
     // display the questions instead of the result page.
     document.getElementById('Questions').style.display = "block";
     document.getElementById('beforeResults').style.display = "none";
-    document.getElementById('Results').style.display = "none";
-    
+    document.getElementById('Results').style.display = "none";  
+
+    resetButtons();
     // If there are more subjects than the index is high, display a new question.
     if (subjectsIndex != subjects.length) { 
         subject = subjects[subjectsIndex];
@@ -33,11 +34,11 @@ function nextQuestion(opinion) {
                     sameAnswer = subjectItems;
                     if (checkBox.checked == true) {
                         // push data to questionResults array.
-                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion});
-                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion});
+                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion, checked: true});
+                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion, checked: true});
                     } else {
                         // push data to questionResults array.
-                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion});
+                        questionResults.push({index: subjectsIndex, answer: sameAnswer.name, opinion: opinion, checked: false});
                     }
                 }
             }); 
@@ -62,10 +63,37 @@ function previousQuestion() {
         // place the question title and description in the html.
         document.getElementById('QuestionTitle').innerHTML = subjectsIndex+1 +'.'+ ' ' + subject.title;
         document.getElementById('QuestionDescription').innerHTML = subject.statement;
+
+        questionResults.forEach(function(answers) {
+            // Check the checkbox if it was clicked previously. else, uncheck it.
+            if ((subjectsIndex == answers.index) && (answers.checked == true)) {
+                document.getElementById("addWeight").checked = true;
+            } else if ((subjectsIndex == answers.index) && (answers.checked == false)) {
+                document.getElementById("addWeight").checked = false;
+            }
+            // Mark the button that was clicked previously.
+            if ((subjectsIndex == answers.index) && (answers.opinion == 'pro')) {
+                resetButtons();
+                document.getElementById('buttonPro').style.backgroundColor = '#01B4DC';
+            } else if ((subjectsIndex == answers.index) && (answers.opinion == 'none')) {
+                resetButtons();
+                document.getElementById('buttonNone').style.backgroundColor = '#01B4DC';
+            } else if ((subjectsIndex == answers.index) && (answers.opinion == 'contra')) {
+                resetButtons();
+                document.getElementById('buttonContra').style.backgroundColor = '#01B4DC';
+            }
+        });
+
     } else { 
         // Go back to homepage.
         window.location.href='Stemwijzer.html';
     }
+}
+
+function resetButtons () {
+    document.getElementById('buttonPro').style.backgroundColor = 'black';
+    document.getElementById('buttonNone').style.backgroundColor = 'black';
+    document.getElementById('buttonContra').style.backgroundColor = 'black';
 }
 
 function backToFilter () {

@@ -33,11 +33,13 @@
 							<label for="addWeight">Belangrijke vraag?</label> 
 							<input type="checkbox" id="addWeight" class="m-1" />
 						</div>
+							
+						</div>
 						<!--Opinion buttons-->
 						<div class="row Options mx-auto mb-3">
-							<button onclick="nextQuestion('pro');" class="QuestionButton d-flex justify-content-center">Eens</button>
-							<button onclick="nextQuestion('none');" class="QuestionButton d-flex justify-content-center">Geen van Beide</button>
-							<button onclick="nextQuestion('contra');" class="QuestionButton d-flex justify-content-center">Oneens</button>
+							<button onclick="nextQuestion('pro');" class="QuestionButton d-flex justify-content-center" id="buttonPro">Eens</button>
+							<button onclick="nextQuestion('none');" class="QuestionButton d-flex justify-content-center" id="buttonNone">Geen van Beide</button>
+							<button onclick="nextQuestion('contra');" class="QuestionButton d-flex justify-content-center" id="buttonContra">Oneens</button>
 							<a onclick="nextQuestion('skip');" class="LinkNext align-items-center text-secondary">Sla deze vraag over <i class="fas fa-arrow-right ml-1"></i></a>
 						</div>
 					</div>
